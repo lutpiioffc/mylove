@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>MY LOVELY GIRL 💗</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Ambient Falling Petals, Hearts & Sparkles Canvas -->
+    <canvas id="bg-canvas"></canvas>
+
+    <!-- Top Floating Music Toggle -->
+    <header class="floating-header">
+        <div class="site-brand">MY LOVELY GIRL 💗</div>
+        <button id="music-toggle-btn" class="music-btn" title="Musik Romantis">
+            <i class="fa-solid fa-music"></i>
+            <span id="music-status-text">Musik: OFF</span>
+        </button>
+    </header>
+
+    <!-- Main Interactive Stage -->
+    <main class="stage-container">
+
+        <!-- STAGE 1: HALAMAN PEMBUKA -->
+        <section id="stage-intro" class="screen active">
+            <div class="glass-card intro-card">
+                <div class="floating-crown">✨🌸✨</div>
+                <h1 class="romantic-title">Hai, perempuan cantik! 💗</h1>
+                <p class="subtitle">Aku punya sesuatu yang spesial buat kamu.</p>
+                <div class="divider-heart"><span>♥</span></div>
+                <button id="start-adventure-btn" class="primary-love-btn">
+                    Mulai Petualangan Cinta 💌
+                </button>
+            </div>
+        </section>
+
+        <!-- STAGE 2: PERMAINAN MEMBUKA SURAT (5 KOTAK MISTERI HATI) -->
+        <section id="stage-game" class="screen">
+            <div class="glass-card game-card">
+                <span class="step-pill">MISI CINTA • TEMUKAN 3 HATI BENAR</span>
+                <h2 class="section-heading">Buka Kotak Misteri Hati 💝</h2>
+                <p class="game-instruction">Pilih kotak hati di bawah ini dan temukan <strong>3 hati cinta yang tersembunyi</strong> untuk membuka surat spesialmu!</p>
+
+                <div class="progress-hearts" id="progress-hearts">
+                    <span class="prog-dot">🤍</span>
+                    <span class="prog-dot">🤍</span>
+                    <span class="prog-dot">🤍</span>
+                </div>
+
+                <div class="mystery-grid" id="mystery-grid">
+                    <button class="heart-box" data-index="0">
+                        <span class="box-icon">💌</span>
+                        <small>Kotak 1</small>
+                    </button>
+                    <button class="heart-box" data-index="1">
+                        <span class="box-icon">💌</span>
+                        <small>Kotak 2</small>
+                    </button>
+                    <button class="heart-box" data-index="2">
+                        <span class="box-icon">💌</span>
+                        <small>Kotak 3</small>
+                    </button>
+                    <button class="heart-box" data-index="3">
+                        <span class="box-icon">💌</span>
+                        <small>Kotak 4</small>
+                    </button>
+                    <button class="heart-box" data-index="4">
+                        <span class="box-icon">💌</span>
+                        <small>Kotak 5</small>
+                    </button>
+                </div>
+
+                <p id="game-feedback" class="game-feedback"></p>
+
+                <div id="game-win-box" class="game-win-box hidden">
+                    <h3 class="win-banner">Yeay! Kamu berhasil membuka surat spesial! 💗</h3>
+                    <button id="open-envelope-btn" class="primary-love-btn pulse-anim">
+                        Buka Surat 💌
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- STAGE 3: ANIMASI AMPLOP & ISI SURAT CINTA -->
+        <section id="stage-letter" class="screen">
+            <!-- Envelope Animation Wrapper -->
+            <div id="envelope-scene" class="envelope-scene">
+                <div class="envelope-wrapper" id="envelope-wrapper">
+                    <div class="envelope-flap"></div>
+                    <div class="envelope-pocket"></div>
+                    <div class="envelope-letter-preview">
+                        <span>Untuk Kamu 💗</span>
+                    </div>
+                    <div class="wax-seal">❤️</div>
+                </div>
+                <p class="tap-hint">Amplop spesialmu sedang terbuka...</p>
+            </div>
+
+            <!-- Full Love Letter Card -->
+            <div id="letter-content-card" class="glass-card letter-card hidden">
+                <div class="letter-top-ornament">🌸 💌 🌸</div>
+                <div id="typed-letter-body" class="letter-body"></div>
+
+                <!-- Interactive Love Actions -->
+                <div class="letter-actions-panel">
+                    <button id="love-you-btn" class="love-burst-btn">
+                        Aku Sayang Kamu ❤️
+                    </button>
+
+                    <div class="secondary-actions-row">
+                        <button id="secret-msg-btn" class="soft-pill-btn">
+                            <i class="fa-solid fa-lock"></i> Pesan Rahasia
+                        </button>
+                        <button id="gallery-btn" class="soft-pill-btn">
+                            <i class="fa-regular fa-images"></i> Galeri Foto Berdua
+                        </button>
+                        <button id="replay-letter-btn" class="soft-pill-btn">
+                            <i class="fa-solid fa-rotate-left"></i> Baca Lagi
+                        </button>
+                    </div>
+
+                    <button id="to-closing-btn" class="next-stage-btn">
+                        Lanjut ke Kejutan Terakhir ✨
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- STAGE 4: HALAMAN PENUTUP -->
+        <section id="stage-closing" class="screen">
+            <div class="glass-card closing-card">
+                <div class="big-heart-beat">💗</div>
+                <h1 class="closing-big-title">YOU ARE MY FAVORITE PERSON 💗</h1>
+                <p class="closing-sub">Jangan lupa bahagia hari ini, perempuan cantik!</p>
+                <div class="closing-actions">
+                    <button id="closing-love-btn" class="love-burst-btn">Kirim Peluk & Hati ❤️</button>
+                    <button id="restart-all-btn" class="soft-pill-btn">Ulangi Dari Awal 🔄</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- MODAL PESAN RAHASIA -->
+    <div id="secret-modal" class="modal-backdrop hidden">
+        <div class="modal-card">
+            <div class="modal-head">
+                <h3>🔐 Pesan Rahasia Untukmu</h3>
+                <button id="close-secret-modal" class="close-modal-btn"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="modal-body">
+                <div class="secret-note">
+                    <p>"Di antara miliaran orang di dunia ini, bertemu dan mengenalmu adalah salah satu hal paling indah yang pernah terjadi. Tetap jadi alasan aku tersenyum setiap hari ya! 🌷✨"</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL GALERI FOTO BERDUA (BISA UPLOAD FOTO LANGSUNG DI HP) -->
+    <div id="gallery-modal" class="modal-backdrop hidden">
+        <div class="modal-card wide">
+            <div class="modal-head">
+                <h3>📸 Galeri Kenangan Berdua</h3>
+                <button id="close-gallery-modal" class="close-modal-btn"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="modal-body">
+                <p class="gallery-hint">Tambahkan foto berdua favoritmu dari galeri HP (tersimpan otomatis di browser):</p>
+                <label class="upload-photo-btn">
+                    <i class="fa-solid fa-camera"></i> Tambah Foto Berdua
+                    <input type="file" id="photo-upload-input" accept="image/*" class="hidden">
+                </label>
+
+                <div id="photo-grid" class="photo-grid">
+                    <!-- Default Aesthetic Frame Cards + Uploaded Photos -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
